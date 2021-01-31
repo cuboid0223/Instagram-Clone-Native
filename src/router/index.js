@@ -1,9 +1,9 @@
 import React from 'react';
-//import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'; // bottom navbar library
-import {createStackNavigator} from '@react-navigation/stack'; // bottom navbar library
+import {createStackNavigator} from '@react-navigation/stack';
+
 import BottomHomeNavigator from './bottomHomeNavigator.routes';
 import StoryScreen from '../screens/StoryScreen';
-// tab navbar
+
 const RootStack = createStackNavigator();
 
 const Router = () => {
