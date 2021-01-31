@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack'; // header navigati
 
 import {Image} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
+import StoryScreen from '../screens/StoryScreen';
 import logo from '../assets/images/logo.png';
 // icons
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,6 +34,7 @@ const HomeRoutes = () => {
             justifyContent: 'space-around',
           },
           headerStyle: {
+            // hide the default border under the header
             shadowColor: 'transparent',
           },
           headerLeft: () => (

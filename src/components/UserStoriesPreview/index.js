@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import styles from './styles';
-import Story from '../../components/Story';
+import Story from '../UserStoryPreview';
 const Stories = () => {
   const data = [
     {
