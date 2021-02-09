@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, FlatList} from 'react-native';
 import Post from '../Post';
+import {API, graphqlOperation} from 'aws-amplify';
+import {listPosts} from '../../graphql/queries';
 import Stories from '../UserStoriesPreview';
 const Feed = () => {
   const data = [
@@ -44,10 +46,26 @@ const Feed = () => {
       postedAt: '6分鐘前',
     },
   ];
+  const [posts, setPosts] = useState([]);
+  // 取得貼文資料
+  const fetchPosts = async () => {
+    try {
+      const postData = await API.graphql(graphqlOperation(listPosts));
+      console.log(postData.data.listPosts.items);
+      setPosts(postData.data.listPosts.items);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   return (
     <FlatList
       keyExtractor={({id}) => id}
-      data={data}
+      data={posts}
       renderItem={({item}) => <Post post={item} />}
       ListHeaderComponent={Stories}
     />

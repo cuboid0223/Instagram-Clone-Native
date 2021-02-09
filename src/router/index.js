@@ -19,7 +19,7 @@ const Router = () => {
       <RootStack.Screen
         name={'Story'}
         component={StoryScreen}
-        // options={{headerShown: false}}
+        options={{headerShown: false}}
       />
     </RootStack.Navigator>
   );
